@@ -3,7 +3,8 @@ import requests
 
 def lambda_handler(event, context):
     # TODO implement
-    pid = event.get("woolies")
+    pid = json.loads(event.get("body"))
+    pid = pid.get("woolies")
 
     headers = {
                 "content-type": "application/json",
@@ -20,7 +21,6 @@ def lambda_handler(event, context):
     print(product)
 
     return {
-        'statusCode': 200,
         "name": name,
         "price": price,
         "img": img

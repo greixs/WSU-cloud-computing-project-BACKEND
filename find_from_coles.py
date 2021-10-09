@@ -8,7 +8,7 @@ import ssl
 def lambda_handler(event, context):
     # TODO implement
     # https://shop.coles.com.au/search/resources/store/20601/productview/bySeoUrlKeyword/lime-mandarin-hand-wash
-    pid = event.get("coles")
+    pid = json.loads(event.get("body")).get("coles")
     url = f"https://shop.coles.com.au/search/resources/store/20601/productview/bySeoUrlKeyword/{pid}"
 
     print(ssl.OPENSSL_VERSION)
@@ -33,7 +33,6 @@ def lambda_handler(event, context):
     img = "https://shop.coles.com.au/" + json_data.get("catalogEntryView")[0].get("t")
 
     return {
-        'statusCode': 200,
         'name': name,
         'price': price,
         'img': img
