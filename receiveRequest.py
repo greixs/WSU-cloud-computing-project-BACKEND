@@ -3,10 +3,13 @@ import json
 # sample
 OPTIONS = {
         "banana": {"woolies": "133211", "coles":"coles-fresh-bananas---loose"},
+        "apple": {"woolies": "105919", "coles":"apples-pink-lady-loose"},
+        "chicken breast": {"woolies": "710953", "coles":"coles-rspca-free-range-chicken-breast-single"},
     }
 
 def lambda_handler(event, context):
     # TODO implement
+    # {"item" :"Banana"}
 
     item = event.get("item").lower()
 
